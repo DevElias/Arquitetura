@@ -12,7 +12,7 @@
 
     <div class="row">
         <div class="col-12 col-md-8">
-            <?php if($_SESSION['tipo'] == 0): ?>
+            <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?>
             <a href="/projeto/novo" class="btn btn-success btn-lg m-1"><span class="icon-projetos"></span> Novo Projeto</a>
             <?php endif; ?>
         </div>

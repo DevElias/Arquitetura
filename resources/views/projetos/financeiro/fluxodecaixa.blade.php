@@ -32,32 +32,46 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php foreach($detalhes['teste'] as $financeiros):  ?>
+                                            <?php
+                                            $linha = 0;
+
+                                             foreach($detalhes['teste'] as $financeiros):  ?>
                                                <tr>
 
                                                 <?php
                                                     $x    = 0;
                                                     $desc = '';
-
                                                     foreach($financeiros as $financeiro)
                                                     {
                                                         if($x == 0)
                                                         {
-                                                            $desc = ' <td>'. $financeiro[0]["descricao"]. '</td>';
-                                                            $total = '<td> TOTAL </td>';
-                                                            $x++;
-                                                        }
-
-                                                        foreach($financeiro as $final)
-                                                        {
-                                                            //Continuar aqui...
-                                                            echo('<pre>');
-                                                            die(print_r($final, true));
+                                                            $desc = ' <td>'. substr($financeiro[0]["descricao"], 0, -3). '</td>';
+                                                            $totalteste = 0;
+                                                        echo($desc);
+                                                        $x++;
                                                         }
                                                     }
 
-                                                     echo($desc);
-                                                     echo($total);
+                                                    echo("<td>".number_format($detalhes['soma'][$linha]->Valor, 2, '.', ',')."</td>");
+                                                    $linha++;
+                                                        foreach($detalhes['datas'] as $data)
+                                                        {
+                                                            echo("<td>");
+                                                            foreach($financeiros as $financeiro)
+                                                            {
+                                                                foreach($financeiro as $final)
+                                                                {
+                                                                    if($data[0]['Dt'] == $final['Dt'])
+                                                                    {
+                                                                    echo(number_format($final['Valor'], 2, '.', ','));
+                                                                    }
+                                                                }
+                                                            }
+                                                            echo("</td>");
+                                                        }
+
+
+
                                                 ?>
                                               </tr>
                                             <?php endforeach;  ?>
@@ -65,7 +79,13 @@
                                             <tfoot>
                                                 <tr>
                                                 <th>Descrição</th>
-                                                <th>Total</th>
+                                                <th>
+                                                <?php $totalobra = 0; foreach($detalhes['soma'] as $soma):
+                                                $totalobra = $totalobra += $soma->Valor;
+                                                endforeach;
+
+                                                echo(number_format($totalobra, 2, '.', ','));?>
+                                                </th>
                                                 <?php foreach($detalhes['datas'] as $data):  ?>
                                                     <th><?php echo($data[0]['Dt'])  ?></th>
                                                 <?php endforeach;  ?>
@@ -99,6 +119,7 @@
             "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json"
         },
         dom: 'Bfrtip',
+        paging: false,
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]

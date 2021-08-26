@@ -104,6 +104,9 @@
                                             >
                                     </div>
                                     <div class="col-6 col-md-3">
+                                    <span onclick="calcularValor(<?php echo $cont; ?>)" class="btn btn-paddingtop">Calcular</span>
+                                    </div>
+                                    <div class="col-6 col-md-3">
                                     <button  style="margin-top:43px;" onclick="ExcluirItem(<?php echo($produto->id);?>)" class="btn btn-outline-danger">Excluir Item</button>
                                     </div>
                             </div>
@@ -112,8 +115,8 @@
                     </div>
                     <div class="modal-footer">
                     <a href="/projeto/<?php echo $_SESSION['idprojeto']; ?>/orcamentos/produtos" class="btn btn-secondary">Voltar</a>
-                    <span class="btn btn-danger" onclick="ExcluirtemProduto(<?php echo $itens['produtos'][0]->id_pai; ?>)">Excluir</span>
-                    <span class="btn btn-primary" id="atualizaritens" onclick="EditarItensPergunta(<?php echo $itens['produtos'][0]->id_pai; ?>)">Atualizar Itens</span>
+                    <span class="btn btn-danger" onclick="ExcluirtemProduto('<?php echo $itens['produtos'][0]->id_pai; ?>')">Excluir</span>
+                    <span class="btn btn-primary" id="atualizaritens" onclick="EditarItensPergunta('<?php echo $itens['produtos'][0]->id_pai; ?>')">Atualizar Itens</span>
                     </div>
 
                 </form>

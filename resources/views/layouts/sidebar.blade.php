@@ -1,7 +1,7 @@
 <div class="side-content-wrap">
     <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
         <ul class="navigation-left">
-        <?php if($_SESSION['tipo'] == 0){?>
+        <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2){?>
         	<li class="nav-item {{ request()->is('dashboard-admin') ? 'active' : '' }}">
                 <a class="nav-item-hold" href="/dashboard-admin">
                     <span class="icon-sidebar icon-dashboard"></span>
@@ -27,7 +27,7 @@
                 <div class="triangle"></div>
             </li>
          <?php }?>
-         <?php if($_SESSION['tipo'] == 0){?>
+         <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2){?>
             <li class="nav-item {{ request()->is('projeto') ? 'active' : '' }}" data-item="empresas">
                 <a class="nav-item-hold" href="/projetos">
                 <span class="icon-sidebar icon-projetos"></span>

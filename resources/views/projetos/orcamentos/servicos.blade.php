@@ -19,7 +19,7 @@
                             <h2> Orçamento Serviços</h2>
                         </div>
                         <div class="col-12 col-md-3 text-right">
-                        <?php if($_SESSION['tipo'] == 0): ?>
+                        <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?>
                             <a class="btn btn-primary" href="/projeto/<?php  echo $_SESSION['idprojeto'] ?>/orcamentos/servicos/novo">Adicionar Item</a>
                         <?php endif; ?>
                         </div>
@@ -57,7 +57,7 @@
                                                     <div class="row">
                                                     <?php foreach ($itens as $value):?>
                                                         <div class="col-12 col-md-4">
-                                                            <label class="conteudo-opcao">
+                                                            <label class="conteudo-opcao opcao-servico">
                                                             <input type="radio" name="produto<?php echo($itens[0]['id_pai']);?>" value="<?php echo($value['id']);?>" class="radiohide">
                                                             <p class="titulo-produto"><?php echo($value['descricao']);?></p>
                                                             <p><strong>Preço:</strong> R$ <?php echo(number_format($value['valor'], 2, ',', '.'));?><br />
@@ -70,10 +70,10 @@
                                                     </div>
                                                     <div class="col-12 text-center">
 
-                                                    <span class="btn btn-outline-danger" onClick="reprovarItemModal(<?php echo($itens[0]['id_pai']);?>)"  data-toggle="modal" data-target="#reprovarItemModal">Reprovar</span>
-                                                    <span class="btn btn-primary" onClick="AprovarItemProduto(<?php echo($itens[0]['id_pai']);?>)">Aprovar</span>
-                                                    <span class="btn btn-danger" onClick="ExcluirtemProduto(<?php echo($itens[0]['id_pai']);?>)">Excluir</span>
-                                                    <?php if($_SESSION['tipo'] == 0): ?> <a href="/projeto/<?php echo $_SESSION['idprojeto']; ?>/orcamentos/servicos/editar/<?php echo($itens[0]['id_pai']);?>" class="btn btn-alert">Editar</a><?php endif; ?>
+                                                    <span class="btn btn-outline-danger" onClick="reprovarItemModal('<?php echo($itens[0]['id_pai']);?>')"  data-toggle="modal" data-target="#reprovarItemModal">Reprovar</span>
+                                                    <span class="btn btn-primary" onClick="AprovarItemProduto('<?php echo($itens[0]['id_pai']);?>')">Aprovar</span>
+                                                    <span class="btn btn-danger" onClick="ExcluirtemProduto('<?php echo($itens[0]['id_pai']);?>')">Excluir</span>
+                                                    <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?> <a href="/projeto/<?php echo $_SESSION['idprojeto']; ?>/orcamentos/servicos/editar/<?php echo($itens[0]['id_pai']);?>" class="btn btn-alert">Editar</a><?php endif; ?>
                                                     </div>
 
                                                 </form>
@@ -115,7 +115,7 @@
                                                         <div class="row">
                                                         <?php foreach ($itensreprovado as $valuereprovado):?>
                                                             <div class="col-12 col-md-4">
-                                                                <div class="conteudo-opcao">
+                                                                <div class="conteudo-opcao opcao-servico">
                                                                 <p class="titulo-produto"><?php echo($valuereprovado['descricao']);?></p>
                                                                 <p><strong> Preço:</strong> R$ <?php echo(number_format($valuereprovado['valor'], 2, ',', '.'));?><br />
                                                                 <strong>Unidade:</strong> <?php echo($valuereprovado['unidade']);?><br />
@@ -160,7 +160,7 @@
                                                     <div class="row">
                                                     <?php foreach ($itensaprovado as $valueaprovados):?>
                                                         <div class="col-12 col-md-4">
-                                                            <div class="conteudo-opcao">
+                                                            <div class="conteudo-opcao opcao-servico">
                                                             <p class="titulo-produto"><?php echo($valueaprovados['descricao']);?></p>
                                                             <p> <strong>Preço:</strong> R$ <?php echo(number_format($valueaprovados['valor'], 2, ',', '.'));?><br />
                                                             <strong>Unidade:</strong> <?php echo($valueaprovados['unidade']);?><br />

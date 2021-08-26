@@ -18,7 +18,7 @@ class ProjetoController extends Controller
 
     public function index()
     {
-        if($_SESSION['tipo'] == 0){
+        if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2){
             $aProjetos = DB::table('projeto')->where('status', '!=', '4')->get();
         }else {
             $aProjetos = DB::select("SELECT projeto.* FROM projeto inner join solicitacao on solicitacao.id_projeto = projeto.id where solicitacao.id_usuario = " . $_SESSION['id']);
@@ -36,7 +36,7 @@ class ProjetoController extends Controller
 
         $projeto->nome  = $input['nome'];
         $projeto->descricao      = $input['descricao'];
-        $projeto->cep            = $input['cep'];
+        $projeto->cep            = str_replace ('-', '', $input['cep']);
         $projeto->endereco       = $input['endereco'];
         $projeto->numero         = $input['numero'];
         $projeto->complemento    = $input['complemento'];
@@ -188,7 +188,7 @@ class ProjetoController extends Controller
         ->update([
             'nome'              => $input['nome'],
             'descricao'         => $input['descricao'],
-            'cep'               => $input['cep'],
+            'cep'               => str_replace ('-', '', $input['cep']),
             'endereco'          => $input['endereco'],
             'numero'            => $input['numero'],
             'complemento'       => $input['complemento'],

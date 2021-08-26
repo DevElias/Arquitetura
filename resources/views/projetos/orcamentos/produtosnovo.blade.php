@@ -96,11 +96,14 @@
                                             name="adicionais" id="adicionais"  required
                                             >
                                     </div>
+                                    <div class="col-6 col-md-3">
+                                    <span onclick="calcularValor()" class="btn btn-paddingtop">Calcular</span>
+                                    </div>
                             </div>
                         </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <span class="btn btn-outline-primary" id="btnAdd">Adicionar nova opção</span>
+                                    <button class="btn btn-outline-primary" id="btnAdd">Adicionar nova opção</button>
                                     <span class="btn btn-outline-danger" id="btnDel">Remover opção</span>
                                 </div>
                             </div>
@@ -159,6 +162,7 @@
             newSection.children(':first').children(':nth-child(6)').children(':nth-child(3)').attr('id', 'url' + newNum).attr('name', 'url' + newNum).val('');
             newSection.children(':first').children(':nth-child(6)').children(':nth-child(4)').attr('id', 'msgupload' + newNum).html('');
             newSection.children(':first').children(':nth-child(7)').children(':nth-child(2)').attr('id', 'adicionais' + newNum).attr('name', 'adicionais' + newNum).val('');
+            newSection.children(':first').children(':nth-child(8)').children(':nth-child(1)').attr('onclick', 'calcularValor('+ newNum +')' );
 
             $('.clonedSection').last().append(newSection)
 
@@ -168,8 +172,10 @@
             $('#comeco' + newNum).mask('00/00/0000');
             $('#fim' + newNum).mask('00/00/0000');
 
-            if (newNum == 5)
+            if (newNum == 5) {
+                console.log('passei');
                 $('#btnAdd').prop("disabled", true);
+            }
         });
 
 
@@ -188,7 +194,6 @@
                 $('#btnDel').prop("disabled", true);
         });
 
-        $('#btnDel').prop("disabled", true);
 
     });
 </script>

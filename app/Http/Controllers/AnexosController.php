@@ -105,7 +105,7 @@ class AnexosController extends Controller
 
         //Move Uploaded File
         $newname = date("dmYHis");
-        $destinationPath = base_path('public/anexo');
+        $destinationPath = base_path('public_html/anexo');
         $urlreal         = '/anexo/'.$newname.'.'.$extensao;
         $file->move($destinationPath,$newname.'.'.$extensao);
 

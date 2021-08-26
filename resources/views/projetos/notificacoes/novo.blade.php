@@ -4,7 +4,7 @@
     <h1 id="nomeprojeto"></h1>
     <ul>
         <li><a href="">Dashboard</a></li>
-        <li>Financeiro</li>
+        <li>Documentos</li>
     </ul>
 </div>
 
@@ -37,10 +37,11 @@
                                 <label for="documento">Nome do Arquivo</label>
                                 <input type="text" class="form-control-rounded form-control" name="documento">
                             </div>
-                            
+
                             <div class="col-6 col-md-6">
                                         <input type="file" class="custom-file-input" id="customFile">
                                         <label class="custom-file-label form-control-rounded form-control" for="customFile">Escolha o Arquivo</label>
+                                        <span id="msgupload"></span>
                                     </div>
                         </div>
                             <div class="form-group row">
@@ -90,8 +91,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 text-right">
-                                    <a href="{{ url('/projeto/') }}/<?php echo $_SESSION['idprojeto'];  ?>/notificacoes" class="btn btn-outline-primary">Voltar Notificações</a>
-                                    <button type="button" class="btn btn-primary" id="gravar">Adicionar Notificação</button>
+                                    <a href="{{ url('/projeto/') }}/<?php echo $_SESSION['idprojeto'];  ?>/notificacoes" class="btn btn-outline-primary">Voltar Documentos</a>
+                                    <button type="button" class="btn btn-primary" id="gravar">Adicionar Documentos</button>
                                 </div>
                             </div>
 

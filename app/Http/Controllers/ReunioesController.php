@@ -409,7 +409,7 @@ class ReunioesController extends Controller
 
         //Move Uploaded File
         $newname = date("dmYHis");
-        $destinationPath = base_path('public/reuniao');
+        $destinationPath = base_path('public_html/reuniao');
         $urlreal         = '/reuniao/'.$newname.'.'.$extensao;
         $file->move($destinationPath,$newname.'.'.$extensao);
 

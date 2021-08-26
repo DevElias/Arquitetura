@@ -502,8 +502,8 @@ return view('projetos.orcamentos.excel')->with('detalhes', $data);
             $aDados[1]['id_categoria']          = $input['categoria'];
             $aDados[1]['pergunta']              = $input['pergunta'];
             $aDados[1]['unidade']               = $input['unidade'];
-            $aDados[1]['valor']                 = $input['valorunitario'];
-            $aDados[1]['total']                 = $input['total'];
+            $aDados[1]['valor']                 = str_replace (',', '.', str_replace ('.', '', $input['valorunitario']));
+            $aDados[1]['total']                 = str_replace (',', '.', str_replace ('.', '', $input['total']));
             $aDados[1]['link']                  = $input['link'];
             $aDados[1]['adicionais']            = $input['adicionais'];
         }
@@ -512,8 +512,8 @@ return view('projetos.orcamentos.excel')->with('detalhes', $data);
             $aDados[2]['descricao']             = $input['descricao2'];
             $aDados[2]['id_categoria']          = $input['categoria'];
             $aDados[2]['pergunta']              = $input['pergunta'];
-            $aDados[2]['unidade']               = $input['unidade2'];
-            $aDados[2]['valor']                 = $input['valorunitario2'];
+            $aDados[2]['unidade']               = str_replace (',', '.', str_replace ('.', '', $input['valorunitario2']));
+            $aDados[2]['valor']                 = str_replace (',', '.', str_replace ('.', '', $input['total2']));
             $aDados[2]['total']                 = $input['total2'];
             $aDados[2]['link']                  = $input['link2'];
             $aDados[2]['adicionais']            = $input['adicionais2'];
@@ -524,8 +524,8 @@ return view('projetos.orcamentos.excel')->with('detalhes', $data);
             $aDados[3]['id_categoria']          = $input['categoria'];
             $aDados[3]['pergunta']              = $input['pergunta'];
             $aDados[3]['unidade']               = $input['unidade3'];
-            $aDados[3]['valor']                 = $input['valorunitario3'];
-            $aDados[3]['total']                 = $input['total3'];
+            $aDados[3]['valor']                 = str_replace (',', '.', str_replace ('.', '', $input['valorunitario3']));
+            $aDados[3]['total']                 = str_replace (',', '.', str_replace ('.', '', $input['total3']));
             $aDados[3]['link']                  = $input['link3'];
             $aDados[3]['adicionais']            = $input['adicionais3'];
         }
@@ -535,8 +535,8 @@ return view('projetos.orcamentos.excel')->with('detalhes', $data);
             $aDados[4]['id_categoria']          = $input['categoria'];
             $aDados[4]['pergunta']              = $input['pergunta'];
             $aDados[4]['unidade']               = $input['unidade4'];
-            $aDados[4]['valor']                 = $input['valorunitario4'];
-            $aDados[4]['total']                 = $input['total4'];
+            $aDados[4]['valor']                 = str_replace (',', '.', str_replace ('.', '', $input['valorunitario4']));
+            $aDados[4]['total']                 = str_replace (',', '.', str_replace ('.', '', $input['total4']));
             $aDados[4]['link']                  = $input['link4'];
             $aDados[4]['adicionais']            = $input['adicionais4'];
         }
@@ -546,8 +546,8 @@ return view('projetos.orcamentos.excel')->with('detalhes', $data);
             $aDados[5]['id_categoria']          = $input['categoria'];
             $aDados[5]['pergunta']              = $input['pergunta'];
             $aDados[5]['unidade']               = $input['unidade5'];
-            $aDados[5]['valor']                 = $input['valorunitario5'];
-            $aDados[5]['total']                 = $input['total5'];
+            $aDados[5]['valor']                 = str_replace (',', '.', str_replace ('.', '', $input['valorunitario5']));
+            $aDados[5]['total']                 = str_replace (',', '.', str_replace ('.', '', $input['total5']));
             $aDados[5]['link']                  = $input['link5'];
             $aDados[5]['adicionais']            = $input['adicionais5'];
         }
@@ -729,7 +729,7 @@ return view('projetos.orcamentos.excel')->with('detalhes', $data);
         //Move Uploaded File
         $newname = date("dmYHis");
         $urlreal         = '/orcamento/'.$newname.'.'.$extensao;
-        $destinationPath = base_path('public/orcamento');
+        $destinationPath = base_path('public_html/orcamento');
         $file->move($destinationPath,$newname.'.'.$extensao);
 
         if(!empty($file))

@@ -24,11 +24,13 @@
                                 <span class="icon-projeto-list icon-orcamento"></span>
                                 Orçamentos</a>
                             </li>
+                            <?php if($_SESSION['tipo'] != 2): ?>
                             <li class="<?php echo $financeiro2;  ?>">
                                 <a href="{{ url('/projeto/') }}/<?php echo $id;  ?>/financeiro">
                                 <span class="icon-projeto-list icon-financeiro"></span>
                                 Financeiro</a>
                             </li>
+                            <?php endif; ?>
                             <li class="<?php echo $reuniao;  ?>">
                                 <a href="{{ url('/projeto/') }}/<?php echo $id;  ?>/reunioes">
                                 <span class="icon-projeto-list icon-reuniao"></span>
@@ -37,7 +39,7 @@
                             <li class="<?php echo $notificacao;  ?>">
                                 <a href="{{ url('/projeto/') }}/<?php echo $id;  ?>/notificacoes">
                                 <span class="icon-projeto-list icon-notificacao"></span>
-                                Notificações</a>
+                                Documentos</a>
                             </li>
                             <li  class="<?php echo $usuarios2;  ?>">
                                 <a href="{{ url('/projeto/') }}/<?php echo $id;  ?>/usuarios">

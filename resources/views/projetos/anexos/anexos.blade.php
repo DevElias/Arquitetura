@@ -19,7 +19,7 @@
                             <h2>Projetos</h2>
                         </div>
                         <div class="col-12 col-md-6 text-right">
-                        <?php if($_SESSION['tipo'] == 0): ?> <a href="anexos/novo" class="btn btn-primary">Novo Projeto</a><?php endif; ?>
+                        <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?> <a href="anexos/novo" class="btn btn-primary">Novo Projeto</a><?php endif; ?>
                         </div>
                             <div class="col-12 col-md-12">
                                 <div id="accordion">
@@ -87,7 +87,7 @@
                                                                <td><?php echo($status);?></td>
                                                                 <td>
                                                                 <a href="{{ url('/projeto/') }}/<?php echo $_SESSION['idprojeto'];  ?>/anexos/editar/<?php echo($value['id']);?>" class="btn btn-primary">Editar</a>
-                                                            <?php if($_SESSION['tipo'] == 0): ?> <a href="#" onclick="ExcluirAnexo(<?php echo($value['id']);?>)" class="btn btn-outline-danger">Excluir</a><?php endif; ?>
+                                                            <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?> <a href="#" onclick="ExcluirAnexo(<?php echo($value['id']);?>)" class="btn btn-outline-danger">Excluir</a><?php endif; ?>
                                                                 </td>
                                                             </tr>
                                                              <?php endforeach; ?>

@@ -57,6 +57,7 @@
                                         <input type="text"
                                             class="form-control-rounded form-control"
                                             name="unidade"
+                                            id="unidade"
                                             required>
                                     </div>
                                     <div class="col-6 col-md-3">
@@ -88,11 +89,14 @@
                                             name="adicionais" id="adicionais"  required
                                             >
                                     </div>
+                                    <div class="col-6 col-md-3">
+                                    <span onclick="calcularValor()" class="btn btn-paddingtop">Calcular</span>
+                                    </div>
                             </div>
                         </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <span class="btn btn-outline-primary" id="btnAdd">Adicionar nova opção</span>
+                                    <button class="btn btn-outline-primary" id="btnAdd">Adicionar nova opção</button>
                                     <span class="btn btn-outline-danger" id="btnDel">Remover opção</span>
                                 </div>
                             </div>
@@ -145,6 +149,7 @@
             newSection.children(':first').children(':nth-child(4)').children(':nth-child(2)').attr('id', 'total' + newNum).attr('name', 'total' + newNum).val('').val('').mask('#.##0,00', {reverse: true});
             newSection.children(':first').children(':nth-child(5)').children(':nth-child(2)').attr('id', 'link' + newNum).attr('name', 'link' + newNum).val('');
             newSection.children(':first').children(':nth-child(6)').children(':nth-child(2)').attr('id', 'adicionais' + newNum).attr('name', 'adicionais' + newNum).val('');
+            newSection.children(':first').children(':nth-child(7)').children(':nth-child(1)').attr('onclick', 'calcularValor('+ newNum +')' );
 
             $('.clonedSection').last().append(newSection)
 
@@ -174,7 +179,6 @@
                 $('#btnDel').prop("disabled", true);
         });
 
-        $('#btnDel').prop("disabled", true);
 
     });
 </script>

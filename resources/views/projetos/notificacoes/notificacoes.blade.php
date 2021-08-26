@@ -4,7 +4,7 @@
     <h1 id="nomeprojeto"></h1>
     <ul>
         <li><a href="">Dashboard</a></li>
-        <li>Notificações</li>
+        <li>Documentos</li>
     </ul>
 </div>
 
@@ -19,7 +19,7 @@
                             <h2>Notificações</h2>
                         </div>
                         <div class="col-12 col-md-6 text-right">
-                        <?php if($_SESSION['tipo'] == 0): ?>
+                        <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?>
                             <a href="notificacoes/novo" class="btn btn-primary">Nova Notificação</a>
                         <?php endif; ?>
                         </div>
@@ -90,7 +90,7 @@
 
                                                                 <td>
                                                                 <a href="{{ url('/projeto/') }}/<?php echo $_SESSION['idprojeto'];  ?>/notificacao/editar/<?php echo($value['id']);?>" class="btn btn-primary">Editar</a>
-                                                                <?php if($_SESSION['tipo'] == 0): ?> <a href="#" onclick="ExcluirNotificacao(<?php echo($value['id']);?>)" class="btn btn-outline-danger">Excluir</a><?php endif; ?>
+                                                                <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?> <a href="#" onclick="ExcluirNotificacao(<?php echo($value['id']);?>)" class="btn btn-outline-danger">Excluir</a><?php endif; ?>
                                                                 </td>
 
                                                             </tr>

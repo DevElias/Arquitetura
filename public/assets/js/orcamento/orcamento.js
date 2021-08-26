@@ -587,3 +587,23 @@ function EditarItensPergunta(id_pai)
 		}
     })
 }
+
+function calcularValor(id){
+
+        let iditem = id;
+
+        console.log(iditem);
+        if ((typeof  iditem === "undefined")){
+        let unidade = parseInt($('#unidade').val());
+        let valor = parseFloat($('#valorunitario').val().replace('.','').replace(',','.'));
+        let soma = (unidade * valor).toFixed(2).replace('.',',');
+        console.log(soma);
+        $('#total').val(soma);
+    }else{
+
+        let unidade = parseInt($('#unidade'+iditem).val());
+        let valor = parseFloat($('#valorunitario'+iditem).val().replace('.','').replace(',','.'));
+        let soma = (unidade * valor).toFixed(2).replace('.',',');
+        $('#total'+iditem).val(soma);
+    }
+}

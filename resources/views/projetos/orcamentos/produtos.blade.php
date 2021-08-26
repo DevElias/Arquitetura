@@ -19,7 +19,7 @@
                             <h2> Orçamento Produtos</h2>
                         </div>
                         <div class="col-12 col-md-3 text-right">
-                        <?php if($_SESSION['tipo'] == 0): ?> <a class="btn btn-primary" href="/projeto/<?php  echo $_SESSION['idprojeto'] ?>/orcamentos/produtos/novo">Adicionar Item</a><?php endif; ?>
+                        <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?> <a class="btn btn-primary" href="/projeto/<?php  echo $_SESSION['idprojeto'] ?>/orcamentos/produtos/novo">Adicionar Item</a><?php endif; ?>
                         </div>
                             <div class="col-12">
                                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -59,10 +59,11 @@
                                                             <input type="radio" name="produto<?php echo($itens[0]['id_pai']);?>" value="<?php echo($value['id']);?>" class="radiohide">
                                                             <?php if($value['documento'] != ""):?> <img src="<?php echo($value['documento']);?>" class="w-100"><?php endif;?>
                                                             <p class="titulo-produto"><?php echo($value['descricao']);?></p>
-                                                            <?php if($_SESSION['tipo'] == 0):?> <p><strong>Preço:</strong> R$ <?php echo(number_format($value['valor'], 2, ',', '.'));?><br /><?php endif;?>
+                                                            <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2):?> <p><strong>Preço:</strong> R$ <?php echo(number_format($value['valor'], 2, ',', '.'));?><br /><?php endif;?>
                                                             <strong>Unidade:</strong> <?php echo($value['unidade']);?><br />
                                                             <strong>Total:</strong> R$ <?php echo(number_format($value['total'], 2, ',', '.'));?><br />
                                                             <?php if($value['link'] != ""):?> <strong>Link:</strong><a href="<?php echo($value['link']);?>" class="btn btn-default"  target="_blank">Clique aqui</a> <?php endif;?>
+                                                                <?php if($value['adicionais'] != ""):?> <br /><strong>Fornecedor: </strong><?php echo($value['adicionais']);?> <?php endif;?>
                                                             </p>
                                                             </label>
                                                         </div>
@@ -70,10 +71,10 @@
                                                     </div>
                                                     <div class="col-12 text-center">
 
-                                                    <span class="btn btn-outline-danger" onClick="reprovarItemModal(<?php echo($itens[0]['id_pai']);?>)"  data-toggle="modal" data-target="#reprovarItemModal">Reprovar</span>
-                                                    <span class="btn btn-primary" onClick="AprovarItemProduto(<?php echo($itens[0]['id_pai']);?>)">Aprovar</span>
-                                                    <?php if($_SESSION['tipo'] == 0): ?> <span class="btn btn-danger" onClick="ExcluirtemProduto(<?php echo($itens[0]['id_pai']);?>)">Excluir</span><?php endif; ?>
-                                                    <?php if($_SESSION['tipo'] == 0): ?> <a href="/projeto/<?php echo $_SESSION['idprojeto']; ?>/orcamentos/produtos/editar/<?php echo($itens[0]['id_pai']);?>" class="btn btn-alert">Editar</a><?php endif; ?>
+                                                    <span class="btn btn-outline-danger" onClick="reprovarItemModal('<?php echo($itens[0]['id_pai']);?>')"  data-toggle="modal" data-target="#reprovarItemModal">Reprovar</span>
+                                                    <span class="btn btn-primary" onClick="AprovarItemProduto('<?php echo($itens[0]['id_pai']);?>')">Aprovar</span>
+                                                    <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?> <span class="btn btn-danger" onClick="ExcluirtemProduto('<?php echo($itens[0]['id_pai']);?>')">Excluir</span><?php endif; ?>
+                                                    <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?> <a href="/projeto/<?php echo $_SESSION['idprojeto']; ?>/orcamentos/produtos/editar/<?php echo($itens[0]['id_pai']);?>" class="btn btn-alert">Editar</a><?php endif; ?>
                                                     </div>
 
                                                 </form>
@@ -118,11 +119,11 @@
                                                                 <div class="conteudo-opcao">
                                                                 <?php if($valuereprovado['documento'] != ""):?><img src="<?php echo($valuereprovado['documento']);?>" class="w-100"><?php endif;?>
                                                                 <p class="titulo-produto"><?php echo($valuereprovado['descricao']);?></p>
-                                                        <?php if($_SESSION['tipo'] == 0):?><p><strong> Preço:</strong> R$ <?php echo(number_format($valuereprovado['valor'], 2, ',', '.'));?><br /><?php endif;?>
+                                                        <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2):?><p><strong> Preço:</strong> R$ <?php echo(number_format($valuereprovado['valor'], 2, ',', '.'));?><br /><?php endif;?>
                                                                 <strong>Unidade:</strong> <?php echo($valuereprovado['unidade']);?><br />
                                                                 <strong>Total: </strong> R$  <?php echo(number_format($valuereprovado['total'], 2, ',', '.'));?><br />
                                                                 <?php if($valuereprovado['link'] != ""):?> <strong>Link:</strong><a href="<?php echo($valuereprovado['link']);?>" class="btn btn-default" href="#">Clique aqui</a></p><?php endif;?>
-
+                                                                    <?php if($valuereprovado['adicionais'] != ""):?>  <br /><strong>Fornecedor: </strong><?php echo($valuereprovado['adicionais']);?> <?php endif;?>
                                                                     <h2>
                                                                     Motivo:<br />
                                                                 <?php if($valuereprovado['motivo'] != ""):?>
@@ -170,10 +171,11 @@
                                                             <div class="conteudo-opcao">
                                                             <?php if($valueaprovados['documento'] != ""):?><img src="<?php echo($valueaprovados['documento']);?>" class="w-100"><?php endif; ?>
                                                             <p class="titulo-produto"><?php echo($valueaprovados['descricao']);?></p>
-                                                            <?php if($_SESSION['tipo'] == 0):?><p> <strong>Preço:</strong> R$ <?php echo(number_format($valueaprovados['valor'], 2, ',', '.'));?><br /><?php endif; ?>
+                                                            <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2):?><p> <strong>Preço:</strong> R$ <?php echo(number_format($valueaprovados['valor'], 2, ',', '.'));?><br /><?php endif; ?>
                                                             <strong>Unidade:</strong> <?php echo($valueaprovados['unidade']);?><br />
                                                             <strong>Total:</strong> R$ <?php echo(number_format($valueaprovados['total'], 2, ',', '.'));?><br />
                                                     <?php if($valueaprovados['link'] != ""):?><strong>Link:</strong> <a href="<?php echo($valueaprovados['link']);?>" target="_blank" class="btn btn-default">Clique aqui</a></p><?php endif; ?>
+                                                        <?php if($valueaprovados['adicionais'] != ""):?> <br /><strong>Fornecedor: </strong><?php echo($valueaprovados['adicionais']);?> <?php endif;?>
                                                             </div>
                                                         </div>
                                                         <?php endforeach; ?>

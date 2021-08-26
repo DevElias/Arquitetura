@@ -272,6 +272,12 @@ a p {
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
+#pills-pendente .conteudo-opcao {
+    min-height: 550px;
+}
+#pills-pendente .conteudo-opcao.opcao-servico {
+    min-height: 220px;
+}
 .card-icon-bg-primary span {
     font-size: 52px;
     width: 70px;
@@ -297,6 +303,10 @@ a p {
 .radiohide {
     display: block;
     margin:0 auto;
+    display: none;
+}
+span.btn.btn-paddingtop {
+    padding-top: 50px;
 }
 .conteudo-opcao img {
     max-height: 300px;
@@ -330,6 +340,7 @@ a p {
 }
 .endereco-projeto {
     font-size: 16px;
+    min-height: 80px;
 }
 .btn-raised-success {
     background:#f8f9fa;

@@ -22,19 +22,23 @@ class FinanceiroController extends Controller
 
     public function agenda($id)
     {
-        $aFinanceiro = $aItens = DB::select("SELECT financeiro.*, categoria.nome as categoria FROM financeiro inner join categoria on categoria.id = financeiro.id_categoria WHERE financeiro.id_projeto = " . $id. " ORDER BY  financeiro.dia_pagamento ASC");
-
-        return view('projetos.financeiro.agenda')->with('financeiro', $aFinanceiro);
+        $aFinanceiro = $aItens = DB::select("SELECT STR_TO_DATE(financeiro.dia_pagamento, '%d/%m/%Y') as dia_pagamento2, financeiro.*,  categoria.nome as categoria FROM financeiro inner join categoria on categoria.id = financeiro.id_categoria WHERE financeiro.id_projeto = " . $id. "  AND financeiro.status != 3  ORDER BY  dia_pagamento2 ASC");
+        $pagos = $aItens = DB::select("SELECT STR_TO_DATE(financeiro.dia_pagamento, '%d/%m/%Y') as dia_pagamento2, financeiro.*,  categoria.nome as categoria FROM financeiro inner join categoria on categoria.id = financeiro.id_categoria WHERE financeiro.id_projeto = " . $id. "  AND financeiro.status = 3  ORDER BY  dia_pagamento2 ASC");
+        $datas=[
+            'financeiro'  => $aFinanceiro,
+            'pagos'  => $pagos,
+        ];
+        return view('projetos.financeiro.agenda')->with('detalhes', $datas);
     }
 
     public function fluxodecaixa()
     {
-        $aFluxodecaixa = $aItens = DB::select("SELECT descricao, id_orcamento, SUM(valor) AS 'Valor', CONCAT(MONTH(STR_TO_DATE(dia_pagamento, '%d/%m/%Y')),'/',  YEAR(STR_TO_DATE(dia_pagamento, '%d/%m/%Y'))) as Dt FROM financeiro WHERE id_projeto = ".$_SESSION['idprojeto']." GROUP BY id_orcamento, dt");
+        $aFluxodecaixa = $aItens = DB::select("SELECT (STR_TO_DATE(dia_pagamento, '%d/%m/%Y')) as orderdate, descricao, id_orcamento, SUM(valor) AS 'Valor', CONCAT(MONTH(STR_TO_DATE(dia_pagamento, '%d/%m/%Y')),'/',  YEAR(STR_TO_DATE(dia_pagamento, '%d/%m/%Y'))) as Dt FROM financeiro WHERE id_projeto = ".$_SESSION['idprojeto']." GROUP BY  Year(orderDate),month(OrderDate), id_orcamento ORDER BY orderdate, descricao");
         $contador = 0;
         $aTeste = array();
         $aTestinho = array();
 
-        $somaTotal =$aItens = DB::select("SELECT  SUM(valor) AS 'Valor', id_orcamento    FROM financeiro WHERE id_projeto = ".$_SESSION['idprojeto']." GROUP BY id_orcamento");
+        $somaTotal =$aItens = DB::select("SELECT  SUM(valor) AS 'Valor',  (STR_TO_DATE(dia_pagamento, '%d/%m/%Y')) as orderdate, id_orcamento, descricao    FROM financeiro WHERE id_projeto = ".$_SESSION['idprojeto']." GROUP BY id_orcamento ORDER BY orderdate, descricao");
 
         foreach($aFluxodecaixa as $k=>$v)
         {
@@ -54,14 +58,16 @@ class FinanceiroController extends Controller
 
         }
 
-        $aDatas =  $this->agrupar($aTeste, 'Dt');
 
+        $aDatas =  $this->agrupar($aTeste, 'Dt');
         $datas=[
             'financeiro'  => $aCompleto,
             'datas'       => $aDatas,
             'teste'       => $aTestinho,
             'soma'        => $somaTotal
         ];
+
+
         return view('projetos.financeiro.fluxodecaixa')->with('detalhes', $datas);
     }
     public function novo()
@@ -94,15 +100,18 @@ class FinanceiroController extends Controller
         $financeiro = new Financeiro;
         $parcela    = 1;
 
+        $select_orcamento = DB::select("SELECT max(id) as id FROM financeiro");
+        $id_orcamento = $select_orcamento[0]->id + 1;
         $financeiro->descricao         = $input['descricao'];
         $financeiro->id_categoria      = $input['categoria'];
+        $financeiro->id_orcamento      = $id_orcamento.'direto';
         $financeiro->dia_pagamento     = $input['data'];
         $financeiro->parcelas          = $input['parcelas'];
         $financeiro->replicar          = $input['replicar'];
         $financeiro->arquivo           = $input['url'];
         $financeiro->status            = $input['status'];
         $financeiro->detalhe           = $input['detalhe'];
-        $financeiro->valor             = $input['valor'];
+        $financeiro->valor             = str_replace (',', '.', str_replace ('.', '', $input['valor']));
         $financeiro->id_projeto        = $input['idprojeto'];
         $financeiro->data_inclusao     = date('Y-m-d H:i:s');
         $financeiro->usuario_inclusao  = $_SESSION['id'];
@@ -150,6 +159,7 @@ class FinanceiroController extends Controller
                     'descricao'         => $descricao,
                     'id_categoria'      => $financeiro->id_categoria,
                     'dia_pagamento'     => $financeiro->dia_pagamento,
+                    'id_orcamento'     => $financeiro->id_orcamento,
                     'parcelas'          => $financeiro->parcelas,
                     'replicar'          => $financeiro->replicar,
                     'arquivo'           => $financeiro->arquivo,
@@ -198,7 +208,7 @@ class FinanceiroController extends Controller
         $financeiro->arquivo           = $input['url'];
         $financeiro->status            = $input['status'];
         $financeiro->detalhe           = $input['detalhe'];
-        $financeiro->valor             = $input['valor'];
+        $financeiro->valor             = str_replace (',', '.', str_replace ('.', '', $input['valor']));
         $financeiro->id_projeto        = $input['idprojeto'];
         $financeiro->id_orcamento      = $input['idorcamento'];
         $financeiro->data_inclusao     = date('Y-m-d H:i:s');
@@ -306,7 +316,7 @@ class FinanceiroController extends Controller
 
         //Move Uploaded File
         $newname = date("dmYHis");
-        $destinationPath = base_path('public/financeiro');
+        $destinationPath = base_path('public_html/financeiro');
         $urlreal         = '/financeiro/'.$newname.'.'.$extensao;
         $file->move($destinationPath,$newname.'.'.$extensao);
 
@@ -318,7 +328,7 @@ class FinanceiroController extends Controller
 
     public function listagem($id)
     {
-        $aPagamentos = DB::table('financeiro')->where('id_projeto', '=', $id)->get();
+        $aOs = DB::table('os')->get();
         $eventos     = array();
 
         /*
@@ -332,11 +342,11 @@ class FinanceiroController extends Controller
          *
          */
 
-        foreach($aPagamentos as $k=>$v)
+        foreach($aOs as $k=>$v)
         {
-            $aData = (explode("/",$v->dia_pagamento));
+            $aData = (explode("/",$v->vencimento));
 
-            $title  = $v->descricao;
+            $title  = $v->codigo;
             $start  = $aData[2]. ',' . $aData[1] . ',' . $aData[0];
             $allDay = '!0';
             $color  = '#529ef0';
@@ -454,7 +464,7 @@ class FinanceiroController extends Controller
             'dia_pagamento'     => $input['data'],
             'status'            => $input['status'],
             'arquivo'           => $input['url'],
-            'valor'             => $input['valor'],
+            'valor'             => str_replace (',', '.', str_replace ('.', '', $input['valor'])),
             'detalhe'           => $input['detalhe'],
             'usuario_alteracao' => $_SESSION['id'],
             'data_alteracao'    => date("Y-m-d H:i:s")

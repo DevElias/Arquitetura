@@ -30,7 +30,8 @@
                                                     <th>Email</th>
                                                     <th>Tel</th>
                                                     <th>Cel</th>
-                                                    <?php if($_SESSION['tipo'] == 0): ?> <th>Ações</th><?php endif; ?>
+                                                    <th>CPF</th>
+                                                    <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2 ): ?> <th>Ações</th><?php endif; ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -40,7 +41,8 @@
                                                     <td><?php echo($value->email);?></td>
                                                     <td><?php echo($value->telefone);?></td>
                                                     <td><?php echo($value->whatsapp);?></td>
-                                                    <?php if($_SESSION['tipo'] == 0): ?>
+                                                    <td><?php echo($value->cpf);?></td>
+                                                    <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?>
                                                     <td>
                                                     <a class="btn btn-primary"href="/edit/usuario/<?php echo($value->id);?>/projeto/<?php echo($value->Projeto);?>">Editar</a>
                                                      <button onclick="ExcluirRelacao(<?php echo($value->id);?>)" class="btn btn-outline-danger">Excluir</button>
@@ -55,7 +57,8 @@
                                                     <th>Email</th>
                                                     <th>Tel</th>
                                                     <th>Cel</th>
-                                                    <?php if($_SESSION['tipo'] == 0): ?> <th>Ações</th><?php endif; ?>
+                                                    <th>CPF</th>
+                                                    <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?> <th>Ações</th><?php endif; ?>
                                                 </tr>
                                             </tfoot>
                                         </table>

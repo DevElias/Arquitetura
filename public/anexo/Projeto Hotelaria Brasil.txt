@@ -1,0 +1,57 @@
+LISTA DE PENDÊNCIAS
+
+* Cadastro de Curriculo -> OK
+* Modificar Estado e Cidade no Cadastro de usuários para ComboBox -> OK
+* Linkar Hoteis no Cadastro de Vagas -> OK
+* Todos os Filtros de Tela -> OK
+* Adicionar Componente wysiwyg na tela de Cadastro de Vagas -> OK
+* Adicionar input file na tela de cadastro de Curriculos -> OK
+* Falta um i no Ivoire no footer -> OK
+* Nos Dados do usuário tranformar Estado e Cidade em ComboBox e dar o selected nos ComboBox de Área e Cargo -> OK
+* Auto preenchimento de Campos Herdados na Edição de Vagas -> OK
+* CRUD de Categorias -> OK
+* CRUD de Cargos -> OK
+* CRUD de Áreas -> OK
+* CRUD de Hoteis -> OK 
+* CRUD de Vagas -> OK
+* CRUD de Perguntas Frequentes -> OK
+* CRUD de Procedimentos -> OK
+* CRUD de SubCategorias -> OK
+* CRUD de Usuários -> OK 
+* Adicionar Botão Candidatar-se na tela de Vagas -> OK
+* Exclusão de Curriculo -> OK
+* Cadastro de Candidato com Vinculo a Vaga -> OK
+* FeedBack gravação de vaga toast -> OK
+* Listagem e Exclusão de Candidatos -> OK
+* Gravar Imagem no Cadastro de Usuários -> OK
+* Paginação de Tela -> OK
+* Tela Esqueci minha Senha -> OK
+* Tela de Visualizar Cvs no Banco de Talentos -> OK
+* Listar Destaques no Dashboard -. OK
+* Adicionar Campo Destacado em Vagas -> OK
+* Listagem de Candidatos por Vagas -> OK
+* Esqueci minha Senha -> OK
+* Enviar Email convidando para entrevista -> OK
+* Adicionar Faixa Salarial na tela detalhe de vagas -> OK
+* Filtro de Palavras Chaves , nas perguntas frequentes -> OK
+* Aplicar Filtragem de Área e Estado Selecionados em Botão -> OK
+* Adicionar Status da Vaga (Rascunho, Publicado, Encerrado e Finalizado) -> OK
+* Adicionar Status no Candidato -> OK
+
+*** Elias ***
+
+* Botão Confirmar Presença no E-mail da Entrevista
+* Quais as permissões do Master e Editor ?
+
+*** Camilo ***
+
+
+*** AJUSTES FINAIS Elias / Camilo **
+
+* Máscaras e Validações de Campos
+* Replicar tela de Vagas sem header, footer e sem session
+
+
+
+
+ 

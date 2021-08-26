@@ -26,6 +26,7 @@
                                                 <tr>
                                                     <th>Descrição</th>
                                                     <th>Categoria</th>
+                                                    <th>Fornecedor</th>
                                                     <th>Unidade</th>
                                                     <th>Valor Uni.</th>
                                                     <th>Total</th>
@@ -38,15 +39,17 @@
                                                <tr>
                                                     <td><?php echo($value->descricao);?></td>
                                                     <td><?php echo($value->nome);?></td>
+                                                    <td><?php echo($value->adicionais);?></td>
                                                     <td><?php echo($value->unidade);?></td>
-                                                    <td><?php echo(number_format($value->valor, 2, ',', '.'));?></td>
-                                                    <td><?php echo(number_format($value->total, 2, ',', '.'));?></td>
+                                                    <td><?php echo(number_format($value->valor, 2, '.', ','));?></td>
+                                                    <td><?php echo(number_format($value->total, 2, '.', ','));?></td>
                                                     <td><?php echo($value->faturado);?></td>
                                                     <td><?php echo(round((($value->total / $detalhes['total'][0]->valortotal) * 100), 2));?> %</td>
                                               </tr>
                                             <?php endforeach;  ?>
                                                 <tr>
                                                         <td><strong>Total</strong></td>
+                                                        <td></td>
                                                         <td></td>
                                                         <td><strong><?php $sum = 0;
                                                         foreach ($detalhes['itens'] as $value){
@@ -57,14 +60,14 @@
                                                         foreach ($detalhes['itens'] as $value){
                                                             $sum += $value->valor;
                                                         }
-                                                        echo(number_format($sum, 2, ',', '.')); ?></strong></td>
+                                                        echo(number_format($sum, 2, '.', ',')); ?></strong></td>
                                                         <td>
                                                         <strong>
                                                         <?php $sum = 0;
                                                         foreach ($detalhes['itens'] as $value){
                                                             $sum += $value->total;
                                                         }
-                                                        echo(number_format($sum, 2, ',', '.')); ?></strong></td>
+                                                        echo(number_format($sum, 2, '.', ',')); ?></strong></td>
                                                         <td></td>
                                                         <td><strong>
                                                         <?php
@@ -80,6 +83,7 @@
                                                 <tr>
                                                     <th>Descrição</th>
                                                     <th>Categoria</th>
+                                                    <th>Fornecedor</th>
                                                     <th>Unidade</th>
                                                     <th>Valor Uni.</th>
                                                     <th>Total</th>

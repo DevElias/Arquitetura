@@ -36,7 +36,7 @@
                             <?php echo($Producao);?>
                         </div>
                     </div>
-                    <?php if($_SESSION['tipo'] == 0): ?>
+                    <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?>
                     <div class="col-12 col-md-2 text-right">
                         <a href="/atualizar/<?php echo($detalhes['projeto']->id);?>/projeto" class="btn btn-primary">Editar</a>
                     </div>
@@ -49,12 +49,12 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <h4><strong>Endereço</strong></h4>
-                        <p><?php echo($detalhes['projeto']->endereco);?><br> <?php echo($detalhes['projeto']->bairro);?> <br><?php echo($detalhes['projeto']->cep);?></p>
+                        <p><?php echo($detalhes['projeto']->endereco);?>, <?php echo($detalhes['projeto']->numero);?> <br> <?php echo($detalhes['projeto']->bairro);?> <br><?php echo($detalhes['projeto']->cep);?><br><?php echo($detalhes['projeto']->complemento);?></p>
                     </div>
                      <?php foreach ($detalhes['usuarios'] as $value):?>
-                        <div class="col-12 col-md-6">
+                        <div class="col-12">
                             <h4><strong><?php echo($value->nome);?></strong></h4>
-                            <p>Tel:  <?php echo($value->telefone);?><br> Cel <?php echo($value->whatsapp);?></p>
+                            <?php if($value->telefone): ?><p>Tel: <span data-mask="(00) 0000-00000"> <?php echo($value->telefone);?></span><br><?php endif; ?><?php if($value->cpf): ?> Cpf: <span data-mask="000.000.000-00"><?php echo($value->cpf);?></span><?php endif; ?></p>
                         </div>
                      <?php endforeach; ?>
                 </div>

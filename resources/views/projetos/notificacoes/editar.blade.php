@@ -4,7 +4,7 @@
     <h1 id="nomeprojeto"></h1>
     <ul>
         <li><a href="">Dashboard</a></li>
-        <li>Notificações</li>
+        <li>Documentos</li>
     </ul>
 </div>
 

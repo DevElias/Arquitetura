@@ -23,7 +23,7 @@ if(isset($_GET['categoria'])){
                             <h2> Cronograma</h2>
                         </div>
                         <div class="col-12 col-md-3 text-right">
-                            <?php if($_SESSION['tipo'] == 0): ?>
+                            <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?>
                             <button class="btn btn-primary"  data-toggle="modal" data-target="#novoItem">Adicionar Item</button>
                             <?php endif; ?>
                         </div>
@@ -44,26 +44,26 @@ if(isset($_GET['categoria'])){
                                         aria-labelledby="heading<?php echo($itens[0]['id_categoria']);?>" data-parent="#accordion">
                                             <div class="card-body">
                                                 <div class="table-responsive tabela-custom">
-                                                    <table class="display table table-striped table-bordered" id="categoria1" style="width:100%">
+                                                    <table class="display table table-striped table-bordered" id="categoria<?php echo($itens[0]['id_categoria']);?>" style="width:100%">
                                                         <thead>
                                                             <tr>
                                                                  <th>Descrição</th>
-                                                                 <?php if($_SESSION['tipo'] == 0): ?><th>Executor</th><?php endif; ?>
+                                                                 <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?><th>Executor</th><?php endif; ?>
                                                                 <th>Prancha</th>
                                                                 <th>Timeline Start</th>
                                                                 <th>Timeline End</th>
-                                                                <?php if($_SESSION['tipo'] == 0): ?><th>Ações</th><?php endif; ?>
+                                                                <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?><th>Ações</th><?php endif; ?>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                          <?php foreach ($itens as $value):?>
                                                             <tr>
                                                                <td><?php echo($value['descricao']);?></td>
-                                                               <?php if($_SESSION['tipo'] == 0): ?><td><?php echo($value['executor']);?></td><?php endif; ?>
+                                                               <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?><td><?php echo($value['executor']);?></td><?php endif; ?>
                                                                 <td><?php echo($value['prancha']);?></td>
                                                                 <td><?php echo($value['inicio']);?></td>
                                                                 <td><?php echo($value['fim']);?></td>
-                                                                <?php if($_SESSION['tipo'] == 0): ?>
+                                                                <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?>
                                                                     <td>
                                                                 <button class="btn btn-primary"  data-toggle="modal" data-target="#editarItem" onclick="EditarItem(<?php echo($value['id']);?>)">Editar</button>
                                                                 <a href="#" onclick="ExcluirItem(<?php echo($value['id']);?>)" class="btn btn-outline-danger">Excluir</a>
@@ -174,7 +174,7 @@ if(isset($_GET['categoria'])){
                         </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <span class="btn btn-outline-primary" id="btnAdd">Adionar Novo Item</span>
+                                    <button class="btn btn-outline-primary" id="btnAdd">Adionar Novo Item</button>
                                     <span class="btn btn-outline-danger" id="btnDel">Remover Novo Item</span>
                                 </div>
                             </div>
@@ -339,8 +339,8 @@ if(isset($_GET['categoria'])){
         });
 
         $('#btnDel').prop("disabled", true);
-
-        $('#categoria1').DataTable( {
+        <?php $x = 0; foreach ($detalhes['itens'] as $itens): ?>
+        $('#categoria<?php echo($itens[0]['id_categoria']);?>').DataTable( {
             "bPaginate": false, //hide pagination
             "bFilter": false, //hide Search bar
             "bInfo": false, // hide showing entries
@@ -348,15 +348,7 @@ if(isset($_GET['categoria'])){
             url: '//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json'
         }
         });
-    // Categorias
-        $('#categoria2').DataTable( {
-            "bPaginate": false, //hide pagination
-            "bFilter": false, //hide Search bar
-            "bInfo": false, // hide showing entries
-            language: {
-                url: '//cdn.datatables.net/plug-ins/1.10.20/i18n/Portuguese-Brasil.json'
-            }
-        });
+        <?php $x++; endforeach; ?>
     });
 </script>
 @endsection

@@ -109,6 +109,7 @@
                                             <input type="text"
                                             class="form-control-rounded form-control"
                                             name="valor" id="valor" value="<?php echo($pagamento['pagamento']->valor);?>"
+                                            <?php if($_SESSION['tipo'] == 1){ echo 'disabled'; } ?>
                                             required>
                                     </div>
                                     <div class="col-12">

@@ -19,7 +19,7 @@
                         <h2>Reuniões - Agenda</h2>
                     </div>
                     <div class="col-12 col-md-6 text-right padding-bottom20">
-                    <?php if($_SESSION['tipo'] == 0): ?><a class="btn btn-primary" href="reunioes/novo/">Adicionar Reunião</a><?php endif; ?>
+                    <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?><a class="btn btn-primary" href="reunioes/novo/">Adicionar Reunião</a><?php endif; ?>
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="card mb-4 o-hidden">
@@ -79,9 +79,8 @@
 <script src="{{asset('assets/js/jquery-confirm.js')}}"></script>
 <script src="{{asset('assets/js/sistema.js')}}"></script>
 <script src="{{asset('assets/js/projeto/descricao.js')}}"></script>
-<script src="{{asset('assets/js/calendar/moment.min.js')}}"></script>
-<script src="{{asset('assets/js/calendar/fullcalendar.min.js')}}"></script>
-<script src="{{asset('assets/js/calendar.script2.js')}}"></script>
-<script src="{{asset('assets/js/calendar/locale-all.js')}}"></script>
+<script src="{{asset('assets/js/vendor/calendar/moment.min.js')}}"></script>
+<script src="{{asset('assets/js/vendor/calendar/fullcalendar.min.js')}}"></script>
+<script src="{{asset('assets/js/calendar.script.js')}}"></script>
 <link rel="stylesheet" href="{{asset('assets/styles/css/plugins/calendar/fullcalendar.min.css')}}" />
 @endsection

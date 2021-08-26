@@ -14,7 +14,7 @@ class IncludeColumnIdOrcamento extends Migration
     public function up()
     {
         Schema::table('financeiro', function (Blueprint $table) {
-            $table->integer('id_orcamento')->comment('Id de orçamento de item aprovado')->after('id_projeto')->default('0');
+            $table->string('id_orcamento', 100)->comment('Id de orçamento de item aprovado ou orcamento direto')->after('id_projeto')->default('0');
         });
     }
 

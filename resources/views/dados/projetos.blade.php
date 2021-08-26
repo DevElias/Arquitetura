@@ -41,13 +41,13 @@
                             ?>
                                     <span class="btn btn-warning m-1">Briefing</span>
                             <?php }
-                            elseif($empresa->status == 1){?>
+                            elseif($projeto->etapa == 1){?>
                                     <span class="btn btn-success m-1">Projeto</span>
-                            <?php }elseif($empresa->status == 2){?>
+                            <?php }elseif($projeto->etapa == 2){?>
                                     <span class="btn btn-success m-1">Planejamento</span>
-                            <?php }elseif($empresa->status == 3){?>
+                            <?php }elseif($projeto->etapa == 3){?>
                                     <span class="btn btn-success m-1">Obra</span>
-                            <?php }elseif($empresa->status == 4){?>
+                            <?php }elseif($projeto->etapa == 4){?>
                                     <span class="btn btn-success m-1">Produção</span>
                             <?php } ?>
                         </td>

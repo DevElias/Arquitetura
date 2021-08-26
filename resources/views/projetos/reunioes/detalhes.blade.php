@@ -20,10 +20,10 @@
                     </div>
                     <div class="col-12  col-md-6 text-right">
                         <a href="{{ url('/projeto/') }}/<?php echo $_SESSION['idprojeto'];  ?>/reunioes" class="btn btn-secondary" id="excluir">Voltar</a>
-                        <?php if($_SESSION['tipo'] != 0){?>
+                        <?php if($_SESSION['tipo'] == 1){?>
                         <button class="btn btn-primary" id="confirmar">Confirmar Presença</button>
                         <?php }?>
-                        <?php if($_SESSION['tipo'] == 0): ?>
+                        <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?>
                         <a href="<?php echo($detalhes['reuniao']->id);?>/editar" class="btn btn-primary">Editar</a>
                         <?php endif; ?>
                     </div>

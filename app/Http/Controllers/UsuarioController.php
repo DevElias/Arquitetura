@@ -44,7 +44,7 @@ class UsuarioController extends Controller
             $message[] = 'Usuario logado com sucesso!';
             $code      = 200;
 
-            if($_SESSION['tipo'] == '0')
+            if($_SESSION['tipo'] == '0' || $_SESSION['tipo'] == '2')
             {
                 $redirect  = '/dashboard-admin';
             }
@@ -619,15 +619,15 @@ class UsuarioController extends Controller
                         <tbody>
                             <tr>
                                 <td><h3 style="margin:0px;text-align:center;display:block;color:#444444;font-size:22px;font-weight:bold;line-height:33px;padding-bottom: 20px; padding-top: 20px;">Ol&aacute;, '. utf8_decode($usuario->nome).'</h3>
-                                    <p style="margin-bottom: 30px; text-align: center; color:#757575;font-family:Helvetica;font-size:16px;line-height:150%">Vamos começar o seu projeto...</p>
+                                    <p style="margin-bottom: 30px; text-align: center; color:#757575;font-family:Helvetica;font-size:16px;line-height:150%">Vamos come&ccedil;ar o seu projeto...</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td><img src="https://app.buriti.arq.br/assets/images/telalogin.png" style="width:100%;" /></td>
                             </tr>
                             <tr>
-                                <td><h3 style="text-align:center;display:block;margin:0;padding:0; padding-top:20px; color:#444444;font-family:Helvetica;font-size:22px;font-style:normal;font-weight:bold;line-height:150%;letter-spacing:normal">Para isso você precisa acessar o nosso sistema!</h3>
-                                <p style="text-align:center;margin:10px 0;padding:0;color:#757575;font-family:Helvetica;font-size:16px;line-height:150%">Nele você irá acompanhar os <strong>prazos</strong>,<strong> orçamentos </strong>e os <strong>arquivos do projeto.</strong><br> Também terá acesso as pautas e atas das nossas reuniões e fará as aprovações de todos os itens! Assim você conseguirá acompanhar todo o passo a passo: tanto de<strong> design </strong>como <strong>financeiro </strong>da sua obra.</p></td>
+                                <td><h3 style="text-align:center;display:block;margin:0;padding:0; padding-top:20px; color:#444444;font-family:Helvetica;font-size:22px;font-style:normal;font-weight:bold;line-height:150%;letter-spacing:normal">Para isso voc&ecirc; precisa acessar o nosso sistema!</h3>
+                                <p style="text-align:center;margin:10px 0;padding:0;color:#757575;font-family:Helvetica;font-size:16px;line-height:150%">Nele voc&ecirc; ir&aacute; acompanhar os <strong>prazos</strong>,<strong> or&ccedil;amentos </strong>e os <strong>arquivos do projeto.</strong><br> Tamb&eacute;m ter&eacute; acesso as pautas e atas das nossas reuni&otilde;es e far&aacute; as aprova&ccedil;&otilde;es de todos os itens! Assim voc&ecirc; conseguir&aacute; acompanhar todo o passo a passo: tanto de<strong> design </strong>como <strong>financeiro </strong>da sua obra.</p></td>
 
                             </tr>
                             <tr>
@@ -742,15 +742,15 @@ class UsuarioController extends Controller
                     <tbody>
                         <tr>
                             <td><h3 style="margin:0px;text-align:center;display:block;color:#444444;font-size:22px;font-weight:bold;line-height:33px;padding-bottom: 20px; padding-top: 20px;">Ol&aacute;,'. utf8_decode($aUser[0]->nome).'</h3>
-                                <p style="margin-bottom: 30px; text-align: center; color:#757575;font-family:Helvetica;font-size:16px;line-height:150%">Vamos começar o seu projeto...</p>
+                                <p style="margin-bottom: 30px; text-align: center; color:#757575;font-family:Helvetica;font-size:16px;line-height:150%">Vamos come&ccedil;ar o seu projeto...</p>
                             </td>
                         </tr>
                         <tr>
                             <td><img src="https://app.buriti.arq.br/assets/images/telalogin.png"  style="width:100%" /></td>
                         </tr>
                         <tr>
-                            <td><h3 style="text-align:center;display:block;margin:0;padding:0; padding-top:30px; color:#444444;font-family:Helvetica;font-size:22px;font-style:normal;font-weight:bold;line-height:150%;letter-spacing:normal">Para isso você precisa acessar o nosso sistema!</h3>
-                            <p style="text-align:center;margin:10px 0;padding:0;color:#757575;font-family:Helvetica;font-size:16px;line-height:150%">Nele você irá acompanhar os <strong>prazos</strong>,<strong> orçamentos </strong>e os <strong>arquivos do projeto.</strong><br> Também terá acesso as pautas e atas das nossas reuniões e fará as aprovações de todos os itens! Assim você conseguirá acompanhar todo o passo a passo: tanto de<strong> design </strong>como <strong>financeiro </strong>da sua obra.</p></td>
+                            <td><h3 style="text-align:center;display:block;margin:0;padding:0; padding-top:30px; color:#444444;font-family:Helvetica;font-size:22px;font-style:normal;font-weight:bold;line-height:150%;letter-spacing:normal">Para isso voc&ecirc; precisa acessar o nosso sistema!</h3>
+                            <p style="text-align:center;margin:10px 0;padding:0;color:#757575;font-family:Helvetica;font-size:16px;line-height:150%">Nele voc&ecirc; ir&aacute; acompanhar os <strong>prazos</strong>,<strong> or&ccedil;amentos </strong>e os <strong>arquivos do projeto.</strong><br> Tamb&eacute;m ter&aacute; acesso as pautas e atas das nossas reuni&otilde;es e far&aacute; as aprova&ccedil;&otilde;es de todos os itens! Assim voc&ecirc; conseguir&aacute; acompanhar todo o passo a passo: tanto de<strong> design </strong>como <strong>financeiro </strong>da sua obra.</p></td>
 
                         </tr>
                         <tr>
@@ -771,11 +771,11 @@ class UsuarioController extends Controller
                             </td>
                         </tr>
                         <tr>
-                            <td style="background:#333333; color:#fff;">
+                            <td style="color:#333333;">
                             <hr style="border:0; border-top: 2px solid #505050; margin:20px;font-family:Helvetica;">
                             <p style="text-align:center; font-size:16px; padding-bottom:50px;padding-top:50px;">Avenida nove de julho, 4939 - cj 141 - bloco A - Jardim paulista
                             São Paulo - SP</p>
-                            <p style="text-align:center; font-size:16px; padding-bottom:50px;padding-top:50px;"><a href="https://buriti.arq.br" target="_blank" >buriti.arq.br</a></p>
+                            <p style="text-align:center; font-size:16px; padding-bottom:20px;padding-top:20px;"><a href="https://buriti.arq.br" target="_blank" >buriti.arq.br</a></p>
                             <p style="text-align:center; font-size:16px; padding-bottom:20px">Copyright © 2020 Buriti Arquitetura, All rights reserved.</p>
                             </td>
                         </tr>

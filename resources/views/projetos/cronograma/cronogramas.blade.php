@@ -19,7 +19,7 @@
                             <h2>Cronogramas</h2>
                         </div>
                         <div class="col-12 col-md-6 text-right">
-                        <?php if($_SESSION['tipo'] == 0): ?>
+                        <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?>
                             <button class="btn btn-primary"  data-toggle="modal" data-target="#novaCronograma">Novo Cronograma</button>
                             <?php endif; ?>
                         </div>
@@ -57,7 +57,7 @@
                                             	 echo($html);
                                            ?>
                                         </a>
-                                        <?php if($_SESSION['tipo'] == 0): ?>
+                                        <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?>
                                         <p class="text-center">
                                         <button class="btn btn-primary" onclick="EditarCronograma(<?php echo($cronograma->id);?>);"  data-toggle="modal" data-target="#editCronograma">Editar</button>
                                         </p>

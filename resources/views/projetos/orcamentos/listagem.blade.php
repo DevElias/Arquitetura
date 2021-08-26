@@ -23,7 +23,7 @@ if(isset($_GET['categoria'])){
                             <h2> Orçamento </h2>
                         </div>
                         <div class="col-12 col-md-3 text-right">
-                            <?php if($_SESSION['tipo'] == 0): ?>
+                            <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?>
                                 <a class="btn btn-outline-primary" href="/projeto/<?php echo($_SESSION['idprojeto']); ?>/orcamentos/excel/">Exporta Excel</a>
                                 <button class="btn btn-primary"  data-toggle="modal" data-target="#novoItem">Adicionar Item</button>
                             <?php endif; ?>
@@ -52,9 +52,9 @@ if(isset($_GET['categoria'])){
                                                                 <th>Unidade</th>
                                                                 <th>Valor Uni.</th>
                                                                 <th>Total</th>
-                                                                <?php if($_SESSION['tipo'] == 0): ?> <th>Faturado</th><?php endif; ?>
+                                                                <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?> <th>Faturado</th><?php endif; ?>
                                                                 <th>AV</th>
-                                                                <?php if($_SESSION['tipo'] == 0): ?><th style="width:235px">Ações</th><?php endif; ?>
+                                                                <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?><th style="width:235px">Ações</th><?php endif; ?>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -76,6 +76,11 @@ if(isset($_GET['categoria'])){
                                                                 <?php endif; ?>
                                                                 <?php if($value['faturado'] == 'S'): ?><button onclick="CancelarFaturamento(<?php echo($value['id']);?>)" class="btn btn-outline-primary">Cancelar Fatura</button><?php endif; ?>
                                                                 </td>
+                                                                <?php else: ?>
+                                                                    <td>
+                                                                    <button onclick="EditarItem(<?php echo($value['id']);?>)" class="btn btn-outline-primary" data-toggle="modal" data-target="#editarItem">Editar</button>
+                                                                   <button  onclick="ExcluirItem(<?php echo($value['id']);?>)" class="btn btn-outline-danger">Excluir</button>
+                                                                    </td>
                                                                 <?php endif; ?>
                                                             </tr>
                                                             <?php endforeach; ?>
@@ -116,9 +121,9 @@ if(isset($_GET['categoria'])){
                                                                 <th>Unidade</th>
                                                                 <th>Valor Uni.</th>
                                                                 <th>Total</th>
-                                                                <?php if($_SESSION['tipo'] == 0): ?><th>Faturado</th><?php endif; ?>
+                                                                <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?><th>Faturado</th><?php endif; ?>
                                                                 <th>AV</th>
-                                                                <?php if($_SESSION['tipo'] == 0): ?><th>Ações</th><?php endif; ?>
+                                                                <?php if($_SESSION['tipo'] == 0 || $_SESSION['tipo'] == 2): ?><th>Ações</th><?php endif; ?>
                                                             </tr>
                                                         </tfoot>
                                                     </table>
