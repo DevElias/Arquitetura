@@ -6,8 +6,8 @@
         <div class="d-flex align-items-center">
             <img class="logo" src="{{asset('assets/images/footer.png')}}" alt="">
             <div>
-                <p class="m-0">&copy; 2020 Buriti Arquitetura - Todos os direitos Reservados</p>
-                <p class="m-0">Desenvolvido por <a href="https://alemaoagenciadigital.com" target="_blank" style="font-weight:bold;">Alemão Agência Digital</a></p>
+                <p class="m-0">&copy; 2021 Alfaiataria de Sistemas - Todos os direitos Reservados</p>
+                <p class="m-0">Desenvolvido por Elias Lima</p>
             </div>
         </div>
     </div>

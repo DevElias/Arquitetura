@@ -14,14 +14,14 @@
     <body>
         <div class="auth-layout-wrap" style="background-image: url({{asset('assets/images/photo-wide-4.jpg')}})">
             <div class="auth-content">
-                <div class="card o-hidden card-login">
+                <div class="card o-hidden card-login2">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="p-4">
                                 <div class="auth-logo text-center mb-4">
                                 <img src="{{asset('assets/images/logo.png')}}" class="logo-site" alt="Buriti Arquitetura">
                                 </div>
-                                <h1 class="mb-3 text-18">Login</h1>
+                                <h1 class="mb-3 text-18">M&oacute;dulo de Constru&ccedil;&atilde;o</h1>
                                 <form>
                                     <div class="form-group">
                                         <label for="email">Email</label>
