@@ -14,7 +14,7 @@
 <body>
     <div class="auth-layout-wrap" style="background-image: url({{asset('assets/images/photo-wide-4.jpg')}})">
         <div class="auth-content">
-            <div class="card o-hidden card-login">
+            <div class="card o-hidden card-login2">
                    <div class="row">
                     <div class="col-md-12">
                         <div class="p-4">
