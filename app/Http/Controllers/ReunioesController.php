@@ -108,17 +108,17 @@ class ReunioesController extends Controller
                     $mail->Password = "GaYB0ioL5!#@";
 
                     //Recipients
-                    $mail->setFrom('noreply@buriti.arq.br', 'Buriti Arquitetura');
+                    $mail->setFrom('noreply@buriti.arq.br', 'Alfaiataria de Sistemas');
                     $mail->addAddress($usuario[0]->email, utf8_decode($usuario[0]->nome));
 
                     // Content
                     $mail->isHTML(true);
-                    $mail->Subject = 'Convite - Buriti Arquitetura';
+                    $mail->Subject = 'Convite - Alfaiataria de Sistemas - Arquitetura';
                     $mail->Body    = '<html>
                                         <head>
                                         	<meta charset="utf-8"/>
                                         	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-                                        	<title>Convite Sistema Buriti Arquitetura</title>
+                                        	<title>Convite Sistema Alfaiataria de Sistemas Arquitetura</title>
                                         </head>
                                         <body>
                                             <style>
@@ -131,7 +131,7 @@ class ReunioesController extends Controller
                                         	<table style="margin:0 auto; max-width:660px;">
                                         		<thead>
                                         			<tr>
-                                        				<th><img src="https://app.buriti.arq.br/assets/images/topoemail.png" style="width:100%" />  </th>
+                                        				<th><img src="https://www.techo.org/examples/img/logoalfa.png" style="width:100%" />  </th>
                                         			</tr>
                                         		</thead>
                                         		<tbody>
@@ -154,10 +154,10 @@ class ReunioesController extends Controller
                                                     <tr>
                                                         <td style="color:#333333;">
                                                             <hr style="border:0; border-top: 2px solid #505050; margin:20px;font-family:Helvetica;">
-                                                            <p style="text-align:center; font-size:16px;">Avenida nove de julho, 4939 - cj 141 - bloco A - Jardim paulista
-                                                            São Paulo - SP</p>
-                                                            <p style="text-align:center; font-size:16px;"><a href="https://buriti.arq.br" target="_blank" >buriti.arq.br</a></p>
-                                                            <p style="text-align:center; font-size:16px; padding-bottom:20px">Copyright © 2020 Buriti Arquitetura, All rights reserved.</p>
+                                                            <p style="text-align:center; font-size:16px;">Fabio Salvador Bei, 779 - Apt 24 - bloco B - Vila Nova Bonsucesso
+                                                            Guarulhos - SP</p>
+                                                            <p style="text-align:center; font-size:16px;"><a href="#" target="_blank" >Alfaiataria de Sistemas</a></p>
+                                                            <p style="text-align:center; font-size:16px; padding-bottom:20px">Copyright © 2021 Alfaiataria de Sistemas - , All rights reserved.</p>
                                                         </td>
                                                     </tr>
                                         		</tbody>
@@ -316,17 +316,17 @@ class ReunioesController extends Controller
                 $mail->Password = "GaYB0ioL5!#@";
 
                 //Recipients
-                $mail->setFrom('noreply@buriti.arq.br', 'Buriti Arquitetura');
+                $mail->setFrom('noreply@buriti.arq.br', 'Alfaiataria de Sistemas');
                 $mail->addAddress($usuario[0]->email, utf8_decode($usuario[0]->nome));
 
                 // Content
                 $mail->isHTML(true);
-                $mail->Subject = 'Convite - Buriti Arquitetura';
+                $mail->Subject = 'Convite - Alfaiataria de Sistemas - Arquitetura';
                 $mail->Body    = '<html>
                                         <head>
                                         	<meta charset="utf-8"/>
                                         	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-                                        	<title>Convite Sistema Buriti Arquitetura</title>
+                                        	<title>Convite Sistema Alfaiataria de Sistemas - Arquitetura</title>
                                         </head>
                                         <body>
                                             <style>
@@ -339,7 +339,7 @@ class ReunioesController extends Controller
                                         	<table style="margin:0 auto; max-width:660px;">
                                         		<thead>
                                         			<tr>
-                                        				<th><img src="https://app.buriti.arq.br/assets/images/topoemail.png" style="width:100%" />  </th>
+                                        				<th><img src="https://www.techo.org/examples/img/logoalfa.png" style="width:100%" />  </th>
                                         			</tr>
                                         		</thead>
                                         		<tbody>
@@ -362,10 +362,10 @@ class ReunioesController extends Controller
                                                     <tr>
                                                         <td style="color:#333333;">
                                                             <hr style="border:0; border-top: 2px solid #505050; margin:20px;font-family:Helvetica;">
-                                                            <p style="text-align:center; font-size:16px; ">Avenida nove de julho, 4939 - cj 141 - bloco A - Jardim paulista
-                                                            São Paulo - SP</p>
-                                                            <p style="text-align:center; font-size:16px; "><a href="https://buriti.arq.br" target="_blank" >buriti.arq.br</a></p>
-                                                            <p style="text-align:center; font-size:16px; padding-bottom:20px">Copyright © 2020 Buriti Arquitetura, All rights reserved.</p>
+                                                            <p style="text-align:center; font-size:16px; ">Fabio Salvador Bei, 779 - Apt 24 - bloco B - Vila Nova Bonsucesso
+                                                            Guarulhos - SP</p>
+                                                             <p style="text-align:center; font-size:16px;"><a href="#" target="_blank" >Alfaiataria de Sistemas</a></p>
+                                                            <p style="text-align:center; font-size:16px; padding-bottom:20px">Copyright © 2021 Alfaiataria de Sistemas - Arquitetura, All rights reserved.</p>
                                                         </td>
                                                     </tr>
                                         		</tbody>

@@ -199,7 +199,7 @@ class UsuarioController extends Controller
             $mail->Password = "GaYB0ioL5!#@";
 
             //Recipients
-            $mail->setFrom('noreply@buriti.arq.br', 'Buriti Arquitetura');
+            $mail->setFrom('noreply@buriti.arq.br', 'Alfaiataria de Sistemas');
             $mail->addAddress($request->email, utf8_decode($aUsuario[0]->nome));
 
             // Content
@@ -222,7 +222,7 @@ class UsuarioController extends Controller
                 <table style="margin:0 auto; max-width:660px;">
                     <thead>
                         <tr>
-                            <th><img src="https://app.buriti.arq.br/assets/images/topoemail.png" />  </th>
+                            <th><img src="https://www.techo.org/examples/img/logoalfa.png" />  </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -245,7 +245,7 @@ class UsuarioController extends Controller
                     <tr>
                         <td style="background:#333333; color:#fff;">
                             <hr style="border:0; border-top: 2px solid #505050; margin:20px;font-family:Helvetica;">
-                            <p style="text-align:center; font-size:16px; padding-bottom:20px">Copyright © 2020 Buriti Arquitetura, All rights reserved.</p>
+                            <p style="text-align:center; font-size:16px; padding-bottom:20px">Copyright © 2021 Alfaiataria de Sistemas - Arquitetura, All rights reserved.</p>
                         </td>
                     </tr>
                     </tbody>
@@ -381,7 +381,7 @@ class UsuarioController extends Controller
             $mail->Password = "GaYB0ioL5!#@";
 
             //Recipients
-            $mail->setFrom('noreply@buriti.arq.br', 'Buriti Arquitetura');
+            $mail->setFrom('noreply@buriti.arq.br', 'Alfaiataria de Sistemas');
             $mail->addAddress($aUsuario[0]->email, utf8_decode($aUsuario[0]->nome));
 
             // Content
@@ -404,7 +404,7 @@ class UsuarioController extends Controller
                                         	<table style="margin:0 auto; max-width:660px;">
                                         		<thead>
                                         			<tr>
-                                        				<th><img src="http://cliente.santistacontroleambiental.com.br/assets/images/santista-controle-ambiental.png" />  </th>
+                                        				<th><img src="https://www.techo.org/examples/img/logoalfa.png" />  </th>
                                         			</tr>
                                         		</thead>
                                         		<tbody>
@@ -464,7 +464,7 @@ class UsuarioController extends Controller
             $mail->Password = "GaYB0ioL5!#@";
 
             //Recipients
-            $mail->setFrom('noreply@buriti.arq.br', 'Buriti Arquitetura');
+            $mail->setFrom('noreply@buriti.arq.br', 'Alfaiataria de Sistemas');
             $mail->addAddress($aUsuario[0]->email, utf8_decode($aUsuario[0]->nome));
 
             // Content
@@ -487,7 +487,7 @@ class UsuarioController extends Controller
                                         	<table style="margin:0 auto; max-width:660px;">
                                         		<thead>
                                         			<tr>
-                                        				<th><img src="http://cliente.santistacontroleambiental.com.br/assets/images/santista-controle-ambiental.png" />  </th>
+                                        				<th><img src="https://www.techo.org/examples/img/logoalfa.png" />  </th>
                                         			</tr>
                                         		</thead>
                                         		<tbody>
@@ -590,7 +590,7 @@ class UsuarioController extends Controller
                 $mail->Password = "GaYB0ioL5!#@";
 
                 //Recipients
-                $mail->setFrom('noreply@buriti.arq.br', 'Buriti Arquitetura');
+                $mail->setFrom('noreply@buriti.arq.br', 'Alfaiataria de Sistemas');
                 $mail->addAddress($usuario->email, utf8_decode($usuario->nome));
 
                 // Content
@@ -600,7 +600,7 @@ class UsuarioController extends Controller
                 <head>
                     <meta charset="utf-8"/>
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                    <title>Convite Sistema Buriti Arquitetura</title>
+                    <title>Convite Sistema Alfaiataria de Sistemas - Arquitetura</title>
                 </head>
                 <body>
                     <style>
@@ -713,12 +713,12 @@ class UsuarioController extends Controller
             $mail->Password = "GaYB0ioL5!#@";
 
             //Recipients
-            $mail->setFrom('noreply@buriti.arq.br', 'Buriti Arquitetura');
+            $mail->setFrom('noreply@buriti.arq.br', 'Alfaiataria de Sistemas');
             $mail->addAddress($aUser[0]->email, utf8_decode($aUser[0]->nome));
 
             // Content
             $mail->isHTML(true);
-            $mail->Subject = 'Convite  - Buriti Arquitetura';
+            $mail->Subject = 'Convite - Alfaiataria de Sistemas -  Arquitetura';
             $mail->Body    = '<html>
             <head>
                 <meta charset="utf-8"/>
@@ -736,7 +736,7 @@ class UsuarioController extends Controller
                 <table style="margin:0 auto; max-width:660px;">
                     <thead>
                         <tr>
-                            <td><img src="https://app.buriti.arq.br/assets/images/topoemail.png" style="width:100%" />  </td>
+                            <td><img src="https://www.techo.org/examples/img/logoalfa.png" style="width:100%" />  </td>
                         </tr>
                     </thead>
                     <tbody>
@@ -746,7 +746,7 @@ class UsuarioController extends Controller
                             </td>
                         </tr>
                         <tr>
-                            <td><img src="https://app.buriti.arq.br/assets/images/telalogin.png"  style="width:100%" /></td>
+                            <td><img src="https://www.techo.org/examples/img/sistema.jpg"  style="width:100%" /></td>
                         </tr>
                         <tr>
                             <td><h3 style="text-align:center;display:block;margin:0;padding:0; padding-top:30px; color:#444444;font-family:Helvetica;font-size:22px;font-style:normal;font-weight:bold;line-height:150%;letter-spacing:normal">Para isso voc&ecirc; precisa acessar o nosso sistema!</h3>
@@ -773,10 +773,10 @@ class UsuarioController extends Controller
                         <tr>
                             <td style="color:#333333;">
                             <hr style="border:0; border-top: 2px solid #505050; margin:20px;font-family:Helvetica;">
-                            <p style="text-align:center; font-size:16px; padding-bottom:50px;padding-top:50px;">Avenida nove de julho, 4939 - cj 141 - bloco A - Jardim paulista
-                            São Paulo - SP</p>
-                            <p style="text-align:center; font-size:16px; padding-bottom:20px;padding-top:20px;"><a href="https://buriti.arq.br" target="_blank" >buriti.arq.br</a></p>
-                            <p style="text-align:center; font-size:16px; padding-bottom:20px">Copyright © 2020 Buriti Arquitetura, All rights reserved.</p>
+                            <p style="text-align:center; font-size:16px;">Fabio Salvador Bei, 779 - Apt 24 - bloco B - Vila Nova Bonsucesso
+                            Guarulhos - SP</p>
+                            <p style="text-align:center; font-size:16px;"><a href="#" target="_blank" >Alfaiataria de Sistemas</a></p>
+                            <p style="text-align:center; font-size:16px; padding-bottom:20px">Copyright © 2021 Alfaiataria de Sistemas - , All rights reserved.</p>
                             </td>
                         </tr>
                     </tbody>
