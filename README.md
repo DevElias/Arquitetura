@@ -2,11 +2,11 @@
 
 Requisitos:
 
-Php >= 7.4
-Mysql >= 5.6
-Composer
-PDO
-Curl
+Php >= 7.4<br>
+Mysql >= 5.6<br>
+Composer<br>
+PDO<br>
+Curl<br>
 
 Funcionalidade do Sistema:
 
