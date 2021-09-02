@@ -22,3 +22,5 @@ Gestão do fluxo de contrução ou decoração de uma casa / apartamento, acompa
 * Gestão de Aprovação de Orçamentos de Produtos e Serviços 
 * Acompanhamento de Cronogramas da Obra
 * Histórico de toda documentação da Obra
+
+php artisan db:seed --class=UserSeeder
