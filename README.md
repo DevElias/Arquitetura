@@ -23,9 +23,9 @@ Gestão do fluxo de contrução ou decoração de uma casa / apartamento, acompa
 * Acompanhamento de Cronogramas da Obra
 * Histórico de toda documentação da Obra
 
-php artisan migrate
-php artisan db:seed --class=UserSeeder
-php artisan serve
+php artisan migrate<br>
+php artisan db:seed --class=UserSeeder<br>
+php artisan serve<br>
 
 Acessar: 
 http://127.0.0.1:8000
