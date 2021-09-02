@@ -23,4 +23,14 @@ Gestão do fluxo de contrução ou decoração de uma casa / apartamento, acompa
 * Acompanhamento de Cronogramas da Obra
 * Histórico de toda documentação da Obra
 
+php artisan migrate
 php artisan db:seed --class=UserSeeder
+php artisan serve
+
+Acessar: 
+http://127.0.0.1:8000
+
+Usuário de teste:
+
+Email: adm@alfaiatariadesistemas.com
+Senha: 12345
