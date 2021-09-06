@@ -88,4 +88,8 @@ Usuário de teste:
 Email: adm@alfaiatariadesistemas.com
 Senha: 12345
 
+# Tela inicial do Sistema:
+
+![image](https://user-images.githubusercontent.com/14336962/132245006-905d53af-0f33-40a8-98c1-ef20a2b35f00.png)
+
 
