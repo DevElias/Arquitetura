@@ -46,11 +46,39 @@ Gestão do fluxo de contrução ou decoração de uma casa / apartamento, acompa
   ```
   
   ![image](https://user-images.githubusercontent.com/14336962/132243471-e3417619-5ee8-4e13-bf54-588e43930898.png)
+  
+  * Testar se os containers do Docker estão rodando corretamente, acessando localhost
 
+ ![image](https://user-images.githubusercontent.com/14336962/132244635-cf29b9fd-856e-47a4-9e7f-7f0024f21dbb.png)
 
-php artisan migrate<br>
-php artisan db:seed --class=UserSeeder<br>
-php artisan serve<br>
+ * Configurar variáveis de ambiente do sistema
+ 
+  ```
+  .env - no diretório raiz
+  ```  
+  ![image](https://user-images.githubusercontent.com/14336962/132243862-ac0de274-8663-4c4e-a91e-1d1fefd9c113.png)
+
+ * Executar as Migrates
+
+  ```
+    php artisan migrate
+  ```  
+  
+  ![image](https://user-images.githubusercontent.com/14336962/132244088-0fe4178f-f0fc-48a3-9db4-e4508869d53e.png)
+
+ * Executar Seeder para criar o usuário de teste do sistema
+
+ ```
+    php artisan db:seed --class=UserSeeder
+  ```  
+ * Colocar para rodar o servidor
+
+   ```
+    php artisan serve
+   ```  
+
+![image](https://user-images.githubusercontent.com/14336962/132244231-71805786-1cd0-403a-85f8-98d8981d6870.png)
+
 
 Acessar: 
 http://127.0.0.1:8000
@@ -59,3 +87,5 @@ Usuário de teste:
 
 Email: adm@alfaiatariadesistemas.com
 Senha: 12345
+
+
